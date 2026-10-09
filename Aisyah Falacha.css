@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+/* =========================
+   1. GENERAL SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #95a4f2;
+    --light-purple: #E8DDFB;
+    --pink: #F5C7DE;
+    --yellow: #FFE8A3;
+    --dark: #3c2d5b;
+    --gray: #777184;
+    --white: #FFFFFF;
+    --border: #E9E3F0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F8F5FF;
+    color: var(--dark);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+/* =========================
+   2. MAIN SPLIT-SCREEN
+========================= */
+
+.login-page {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 700px;
+    display: flex;
+    background-color: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(94, 67, 130, 0.12);
+}
+
+/* =========================
+   3. LEFT ILLUSTRATION PANEL
+========================= */
+
+.illustration-panel {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    background: linear-gradient(
+        145deg,
+        #E8DDFB,
+        #F8DDEE 60%,
+        #FFF0BE
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+
+.brand-icon {
+    color: #9B71D5;
+    font-size: 30px;
+}
+
+.artwork {
+    height: 320px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rainbow {
+    width: 260px;
+    height: 180px;
+    border: 18px solid #F3BBD9;
+    border-bottom: 0;
+    border-radius: 150px 150px 0 0;
+    position: absolute;
+    top: 45px;
+    box-shadow:
+        0 -16px 0 -2px #BCA5EC,
+        0 -32px 0 -4px #FFE39B;
+    opacity: 0.9;
+}
+
+.moon {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    font-size: 58px;
+    color: #D7A52D;
+    transform: rotate(-20deg);
+}
+
+.star {
+    position: absolute;
+    color: #FFFFFF;
+    text-shadow: 0 2px 8px #B99ADD;
+}
+
+.star-one {
+    top: 45px;
+    left: 50px;
+    font-size: 30px;
+}
+
+.star-two {
+    top: 125px;
+    right: 25px;
+    font-size: 35px;
+}
+
+.star-three {
+    bottom: 35px;
+    left: 65px;
+    font-size: 25px;
+}
+
+/* CSS Unicorn Illustration */
+
+.unicorn {
+    position: relative;
+    width: 180px;
+    height: 155px;
+    margin-top: 70px;
+    z-index: 1;
+}
+
+.face {
+    width: 140px;
+    height: 125px;
+    position: absolute;
+    left: 20px;
+    top: 25px;
+    background: #FFFFFF;
+    border-radius: 48% 48% 45% 45%;
+    box-shadow: 0 12px 25px rgba(125, 90, 155, 0.12);
+}
+
+.horn {
+    position: absolute;
+    z-index: 3;
+    left: 78px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 43px solid #FFE08A;
+    transform: rotate(5deg);
+}
+
+.ear {
+    width: 30px;
+    height: 48px;
+    position: absolute;
+    top: 13px;
+    background: #FFFFFF;
+    border-radius: 80% 80% 20% 20%;
+}
+
+.ear-left {
+    left: 30px;
+    transform: rotate(-25deg);
+}
+
+.ear-right {
+    right: 30px;
+    transform: rotate(25deg);
+}
+
+.mane {
+    position: absolute;
+    width: 155px;
+    height: 60px;
+    left: 12px;
+    top: 20px;
+    border-radius: 50%;
+    background: linear-gradient(
+        90deg,
+        #C6A8F5,
+        #F6BBD9,
+        #FFE59D
+    );
+    transform: rotate(-8deg);
+}
+
+.eye {
+    width: 9px;
+    height: 13px;
+    background: #554260;
+    border-radius: 50%;
+    position: absolute;
+    top: 55px;
+}
+
+.eye-left {
+    left: 38px;
+}
+
+.eye-right {
+    right: 38px;
+}
+
+.cheek {
+    width: 22px;
+    height: 11px;
+    background: #F7BBD8;
+    border-radius: 50%;
+    position: absolute;
+    top: 77px;
+    opacity: 0.8;
+}
+
+.cheek-left {
+    left: 18px;
+}
+
+.cheek-right {
+    right: 18px;
+}
+
+.smile {
+    width: 16px;
+    height: 8px;
+    position: absolute;
+    left: 62px;
+    top: 78px;
+    border-bottom: 2px solid #554260;
+    border-radius: 50%;
+}
+
+.cloud {
+    position: absolute;
+    width: 65px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 30px;
+    bottom: 15px;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 32px;
+    height: 32px;
+    top: -15px;
+    left: 10px;
+}
+
+.cloud::after {
+    width: 25px;
+    height: 25px;
+    top: -10px;
+    right: 8px;
+}
+
+.cloud-left {
+    left: 15px;
+}
+
+.cloud-right {
+    right: 15px;
+}
+
+.illustration-text {
+    position: relative;
+    z-index: 2;
+}
+
+.illustration-text h1 {
+    font-size: 34px;
+    line-height: 1.3;
+    margin-bottom: 14px;
+    letter-spacing: -1px;
+}
+
+.illustration-text p {
+    font-size: 14px;
+    color: #655574;
+    line-height: 1.7;
+}
+
+.decoration-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.circle-one {
+    width: 180px;
+    height: 180px;
+    top: 35%;
+    left: -100px;
+}
+
+.circle-two {
+    width: 220px;
+    height: 220px;
+    right: -120px;
+    bottom: -90px;
+}
+
+/* =========================
+   4. RIGHT LOGIN PANEL
+========================= */
+
+.form-panel {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background-color: #FFFFFF;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 390px;
+}
+
+.mobile-brand {
+    display: none;
+}
+
+.welcome-text {
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    color: var(--purple);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.welcome-text h2 {
+    font-size: 30px;
+    line-height: 1.3;
+    letter-spacing: -0.8px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================
+   5. GOOGLE BUTTON
+========================= */
+
+.google-button {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.google-button:hover {
+    background-color: #FAF7FF;
+    border-color: var(--purple);
+}
+
+.google-icon {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4285F4;
+}
+
+/* =========================
+   6. DIVIDER
+========================= */
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.divider span {
+    flex: 1;
+    height: 1px;
+    background-color: var(--border);
+}
+
+.divider p {
+    color: var(--gray);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* =========================
+   7. FORM INPUTS
+========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+
+.form-group input {
+    width: 100%;
+    height: 49px;
+    padding: 0 15px;
+    border: 1px solid #DDD6E8;
+    border-radius: 9px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--dark);
+    background-color: #FFFFFF;
+    transition: 0.3s;
+}
+
+.form-group input::placeholder {
+    color: #A59BAF;
+}
+
+.form-group input:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(139, 107, 203, 0.13);
+}
+
+.password-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.password-label label {
+    margin-bottom: 9px;
+}
+
+.forgot-link {
+    color: var(--purple);
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 9px;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   8. REMEMBER ME
+========================= */
+
+.form-options {
+    display: flex;
+    align-items: center;
+    margin: 4px 0 24px;
+}
+
+.remember-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    color: #655D70;
+    cursor: pointer;
+}
+
+.remember-option input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--purple);
+    cursor: pointer;
+}
+
+/* =========================
+   9. SIGN IN BUTTON
+========================= */
+
+.sign-in-button {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: none;
+    border-radius: 9px;
+    background: linear-gradient(
+        100deg,
+        #9474D4,
+        #C18AD9
+    );
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 7px 16px rgba(139, 107, 203, 0.2);
+    transition: 0.3s;
+}
+
+.sign-in-button span {
+    font-size: 19px;
+}
+
+.sign-in-button:hover {
+    background: linear-gradient(
+        100deg,
+        #8060C0,
+        #AD74C8
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(139, 107, 203, 0.25);
+}
+
+/* =========================
+   10. SIGN UP & FOOTER
+========================= */
+
+.signup-text {
+    margin-top: 26px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--gray);
+}
+
+.signup-text a {
+    color: var(--purple);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+.footer-text {
+    margin-top: 55px;
+    text-align: center;
+    color: #A49BAB;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* =========================
+   11. RESPONSIVE DESIGN
+========================= */
+
+@media screen and (max-width: 1023px) {
+    body {
+        padding: 20px;
+    }
+
+    .login-page {
+        min-height: 650px;
+    }
+
+    .illustration-panel {
+        padding: 30px;
+    }
+
+    .form-panel {
+        padding: 35px;
+    }
+
+    .illustration-text h1 {
+        font-size: 28px;
+    }
+
+    .welcome-text h2 {
+        font-size: 26px;
+    }
+
+    .rainbow {
+        transform: scale(0.85);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        padding: 16px;
+        align-items: flex-start;
+    }
+
+    .login-page {
+        max-width: 480px;
+        min-height: auto;
+        flex-direction: column;
+        border-radius: 20px;
+    }
+
+    .illustration-panel {
+        display: none;
+    }
+
+    .form-panel {
+        width: 100%;
+        padding: 35px 24px;
+    }
+
+    .form-container {
+        max-width: 100%;
+    }
+
+    .mobile-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 35px;
+    }
+
+    .mobile-brand .brand-icon {
+        font-size: 28px;
+    }
+
+    .welcome-text h2 {
+        font-size: 27px;
+    }
+
+    .footer-text {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .form-panel {
+        padding: 28px 18px;
+    }
+
+    .welcome-text h2 {
+        font-size: 24px;
+    }
+
+    .password-label {
+        flex-wrap: wrap;
+    }
+}
+
+/* =========================
+   12. ACCESSIBILITY
+========================= */
+
+
+/* GOOGLE BUTTON - BABY BLUE */
+
+.google-button {
+    background-color: #DDF2FF;
+    border: 1px solid #C4E6FA;
+    color: #514565;
+    transition: background-color 0.25s ease,
+                transform 0.2s ease;
+}
+
+.google-button:hover {
+    background-color: #FADCEB;
+    border-color: #F2C2DC;
+}
+
+.google-button:active {
+    background-color: #F7C7E0;
+    transform: scale(0.98);
+}
+
+/* LOOK UR PASSWORD - PASTEL RAINBOW */
+
+.remember-option span {
+    font-weight: bold;
+    background: linear-gradient(
+        90deg,
+        #C7A7F7,
+        #F4B8D5,
+        #FFD99A,
+        #B8E5D0,
+        #B9DFFF
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* CHECKBOX PURPLE PASTEL */
+
+.remember-option input {
+    accent-color: #B99AE8;
+}
+
+/* SIGN IN BUTTON - LAVENDER */
+
+.sign-in-button {
+    background: #B99AE8;
+    color: #FFFFFF;
+    border: none;
+    transition: background-color 0.25s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.sign-in-button:hover {
+    background: #A98ADD;
+    transform: translateY(-2px);
+}
+
+/* SIGN IN CHANGES TO PASTEL YELLOW WHEN CLICKED */
+
+.sign-in-button:active {
+    background: #FFE49B;
+    color: #5B496E;
+    transform: scale(0.98);
+    box-shadow: none;
+}
+
+</body>
+</html>
